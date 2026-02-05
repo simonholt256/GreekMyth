@@ -6,3 +6,5 @@ venv\Scripts\activate
 
 
 launch localhost:
+
+python -m uvicorn main:app
