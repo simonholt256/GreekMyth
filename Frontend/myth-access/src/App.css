@@ -1,0 +1,20 @@
+.showcase-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.showcase {
+  width: 200px;
+  background-color: grey;
+  border-radius: 16px;
+  text-align: center;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
