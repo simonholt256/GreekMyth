@@ -112,13 +112,21 @@ def search_entities(q: str, db: Session = Depends(get_db)):
 
 @app.get("/entities/by-category")
 def get_entities_by_category(category: str, db: db_dependency):
-    results = db.query(Entity).filter(Entity.category == category).all()
+    results = db.query(Entity).filter(Entity.category == category).limit(12).all()
     return results
 
 @app.get("/entities/by-division")
 def get_entities_by_division(division: str, db: db_dependency):
-    results = db.query(Entity).filter(Entity.division == division).all()
+    results = db.query(Entity).filter(Entity.division == division).limit(12).all()
     return results
+
+@app.get("/entities/id/{id}", response_model=MythResponse)
+def get_entity_by_id(id: int, db: db_dependency):
+    entity = db.query(Entity).filter(Entity.id == id).first()
+    if not entity:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    return entity
+
 
 #post
 
