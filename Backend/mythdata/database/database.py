@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 URL_DATABASE = 'postgresql://postgres:WalkWithMyth@localhost:5432/myth'
 
-engine = create_engine(URL_DATABASE)
+engine = create_engine(URL_DATABASE, future=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

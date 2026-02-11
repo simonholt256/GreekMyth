@@ -5,10 +5,10 @@ function Showcase() {
     <>
       <h1>Notable figures</h1>
       <div className="showcase-box">
-        <ShowcaseList type="olympians"/>
-        <ShowcaseList type="titan"/>
-        <ShowcaseList type="monster"/>
-        <ShowcaseList type="hero"/>
+        <ShowcaseList type="Olympian"/>
+        <ShowcaseList type="Titan"/>
+        <ShowcaseList type="Monster"/>
+        <ShowcaseList type="Hero"/>
       </div>
     </>
   )

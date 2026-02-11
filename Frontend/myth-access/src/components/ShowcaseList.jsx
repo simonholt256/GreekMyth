@@ -8,10 +8,20 @@ function ShowcaseList({type}) {
   const [error, setError] = useState(null); 
   const baseURL = `http://127.0.0.1:8000/entities/`
 
+
+  let addURL =
+  type === "Monster"
+    ? `by-division?division=${type}`
+    : `by-category?category=${type}`;
+
+    // /entities/filter?type=Monsters <---could be a smoother option
+
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(baseURL + type);
+          const response = await fetch(baseURL + addURL);
+
+          
   
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
@@ -26,7 +36,7 @@ function ShowcaseList({type}) {
         }
       }
       fetchData();
-    }, []);
+    }, [type]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

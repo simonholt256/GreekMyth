@@ -10,10 +10,8 @@ class Entity(Base):
 
   id = Column(Integer, primary_key=True, index=True)
   name = Column(String, index=True)
-  type = Column(String, index=True)
+  division = Column(String, index=True)
+  category = Column(String, index=True)
   description = Column(String)
-  domain = Column(String, index=True)
-  # relations = Column(JSON, default=[])
-  # stories = Column(String)
-  # symbols = Column(String)
+  notes = Column(String, nullable=True)
 

@@ -27,19 +27,19 @@ Base.metadata.create_all(bind=engine)
 
 class MythBase(BaseModel):
   name: str
-  type: str
+  division: str
+  category: str
   description: str
-  domain: str | None = None
-  # relations: list[str] = []
-  # stories: list[str] = []
-  # symbols: list[str] = []
+  notes: str | None = None
+  
 
 class MythResponse(BaseModel):
     id: int
     name: str
-    type: str
+    division: str
+    category: str
     description: str
-    domain: str | None = None
+    notes: str | None = None
 
     class Config:
         orm_mode = True 
@@ -61,14 +61,15 @@ def read_root():
 
 
 
-# @app.get("/entities/{entity_id}")
-# async def read_entity(entity_id: int, db: db_dependency):
-#   result = db.query(models.Entities).filter(models.Entities.id == entities_id).first()
-#     if not result:
+# @app.get("/entities/{id}")
+# def get_category(db: Session = Depends(get_db)):
+#   result = db.query(Entity).filter(
+#      Entity.id == id).first()
+#   if not result:
 #       raise HTTPException(status_code=404, detail="Entity not found")
-#    return result
+#   return result
 
-# get full list (would like to add a limit)
+
 
 @app.get("/entities/")
 def get_entities(db: db_dependency):
@@ -83,16 +84,18 @@ def search_entities(q: str, db: Session = Depends(get_db)):
         .filter(
             or_(
                 Entity.name.ilike(f"%{q}%"),
-                Entity.type.ilike(f"%{q}%"),
+                Entity.division.ilike(f"%{q}%"),
+                Entity.category.ilike(f"%{q}%"),
                 Entity.description.ilike(f"%{q}%")
             )
         )
         .order_by(
             case(
                 (Entity.name.ilike(f"%{q}%"), 1),
-                (Entity.type.ilike(f"%{q}%"), 2),
-                (Entity.description.ilike(f"%{q}%"), 3),
-                else_=4
+                (Entity.division.ilike(f"%{q}%"), 2),
+                (Entity.category.ilike(f"%{q}%"), 3),
+                (Entity.description.ilike(f"%{q}%"), 4),
+                else_=5
             )
         )
         .all()
@@ -100,24 +103,34 @@ def search_entities(q: str, db: Session = Depends(get_db)):
 
     return results
 
-@app.get("/entities/olympians")
-def get_olympians(db: Session = Depends(get_db)):
-    results = db.query(Entity).filter(
-        or_(
-            Entity.type == "Olympian God",
-            Entity.type == "Olympian Goddesses"
-        )
-    ).all()
+# @app.get("/entities/olympians")
+# def get_olympians(db: Session = Depends(get_db)):
+#     results = db.query(Entity).filter(
+#        Entity.category == "Olympian"
+#        ).all()
+#     return results
+
+@app.get("/entities/by-category")
+def get_entities_by_category(category: str, db: db_dependency):
+    results = db.query(Entity).filter(Entity.category == category).all()
     return results
+
+@app.get("/entities/by-division")
+def get_entities_by_division(division: str, db: db_dependency):
+    results = db.query(Entity).filter(Entity.division == division).all()
+    return results
+
+#post
 
 @app.post("/entities/", response_model=MythResponse)
 async def create_entities(entity: MythBase, db: db_dependency):
     try:
         db_entity = Entity(
             name=entity.name,
-            type=entity.type,
+            division=entity.division,
+            category=entity.category,
             description=entity.description,
-            domain=entity.domain
+            notes=entity.notes
         )
         db.add(db_entity)
         db.commit()
