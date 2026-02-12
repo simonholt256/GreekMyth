@@ -33,17 +33,19 @@ function GodList() {
     fetchData();
   }, []);
 
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <>
-      <div>grab myth API</div>
-      <div>
+      <div className="feature-box">
+        <div className="feature-label">Featured entity</div>
         <h1>{entity.name}</h1>
-        <p>Type: {entity.type}</p>
-        <p>Description: {entity.description}</p>
-        <p>Domain: {entity.domain}</p>
+        <p>{entity.division}</p>
+        <p>{entity.description}</p>
+        <p>{entity.category}</p>
+        <button className="random-button" onClick={() => alert(`Clicked: random, how to get random number?`)}>find random</button>
       </div>
     </>
   )

@@ -20,24 +20,33 @@ function Search() {
 
   return (
     <>
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search..."
-      />
-
-      <button onClick={handleSearch}>Search</button>
-
-      <ul>
-        {results.map((item) => (
-          <li key={item.id} style={{
-              padding: "10px",
-              borderBottom: "1px solid #ddd",
-              cursor: "pointer",
-            }} onClick={() => alert(`Clicked: ${item.name}`)}><b>{item.name}</b> {item.description}</li>
-          
-        ))}
-      </ul>
+      <div className="search-box">
+        <div className="search-whole-input">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search..."
+          />
+          <span className="look-in">look in . . .</span>
+          <input className="keyword" placeholder="Olympians"></input>
+          <button onClick={handleSearch} className="search-button">Search</button>
+        </div>
+        
+      </div>
+      <div className="search-results-box">
+        <ul>
+          {results.map((item) => (
+            <li key={item.id} style={{
+                padding: "6px",
+                margin: "2px 10px",
+                borderBottom: "1px solid #46464650",
+                
+              }} ><span onClick={() => alert(`Clicked: ${item.name}`)} className="name">{item.name}</span> {item.description}</li>
+            
+          ))}
+        </ul>
+      </div>
+      
     </>
   )
 
