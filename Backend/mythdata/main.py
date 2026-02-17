@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware 
-from sqlalchemy import or_, case
+from sqlalchemy import or_, case, func
 from pydantic import BaseModel
 from typing import List, Annotated
 from models.models import Base, Entity
@@ -147,6 +147,19 @@ async def create_entities(entity: MythBase, db: db_dependency):
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
+    
+@app.get("/entities/random")
+def get_random_entity(db: Session = Depends(get_db)):
+    entity = db.query(Entity).order_by(func.random()).first()
+    if not entity:
+        raise HTTPException(status_code=404, detail="No entities found")
+    return {
+        "id": entity.id,
+        "name": entity.name,
+        "division": entity.division,
+        "description": entity.description,
+        "category": entity.category
+    }
     
 @app.delete("/entities/{id}")
 def delete_entity(id: int, db: db_dependency):

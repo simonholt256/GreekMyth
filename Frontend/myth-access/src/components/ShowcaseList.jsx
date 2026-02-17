@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function ShowcaseList({type}) {
 
@@ -8,6 +9,7 @@ function ShowcaseList({type}) {
   const [error, setError] = useState(null); 
   const baseURL = `http://127.0.0.1:8000/entities/`
 
+  const navigate = useNavigate()
 
   let addURL =
   type === "Monster"
@@ -40,16 +42,22 @@ function ShowcaseList({type}) {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-  
 
+  const titles = {
+    Olympian: "12 Olympians",
+    Titan: "Original Titans",
+    Monster: "Notable Monsters",
+    Hero: "Notable Heroes"
+  };
+  
   return (
     <div className="showcase">
-      <h2>{type}</h2>
+      <h2>{titles[type]}</h2>
       <ul>
         {entities.map((entity) => (
           <li key={entity.id} style={{
               cursor: "pointer",
-            }} onClick={() => alert(`Clicked: ${entity.name}`)}>
+            }} onClick={() => navigate(`/profile/${entity.id}`)} /*for new tab onClick={() => window.open(`/profile/${entity.id}`, "_blank"*/>
             {entity.name}
           </li>
         ))}

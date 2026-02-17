@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [searched, setSearched] = useState(false);
+
+  const navigate = useNavigate();
 
   async function handleSearch() {
     if (!query) return;
+
+    setSearched(true);
 
     try {
         const res = await fetch(`http://localhost:8000/entities/search?q=${query}`);
@@ -28,23 +34,36 @@ function Search() {
             placeholder="Search..."
           />
           <span className="look-in">look in . . .</span>
-          <input className="keyword" placeholder="Olympians"></input>
-          <button onClick={handleSearch} className="search-button">Search</button>
+          <select className="keyword" name="keyword" id="keyword" placeholder="Olympians">
+            <option value="all">All</option>
+            <option value="god">God</option>
+            <option value="goddess">Goddess</option>
+            <option value="hero">Hero</option>
+            <option value="monster">Monster</option>
+            <option value="nymph">Nymph</option>
+          </select>
+          <button onClick={handleSearch} className="search-button" style={{
+              cursor: "pointer",
+            }} >Search</button>
         </div>
         
       </div>
       <div className="search-results-box">
-        <ul>
-          {results.map((item) => (
-            <li key={item.id} style={{
-                padding: "6px",
-                margin: "2px 10px",
-                borderBottom: "1px solid #46464650",
-                
-              }} ><span onClick={() => alert(`Clicked: ${item.name}`)} className="name">{item.name}</span> {item.description}</li>
-            
-          ))}
-        </ul>
+        {searched && results.length === 0 ? (
+          <p style={{background: "#FFFEF8", margin: "20px",  padding: "10px"}}>Sorry, no result found for "{query}"</p>
+        ) : (
+          <ul>
+            {results.map((item) => (
+              <li key={item.id} style={{
+                  padding: "6px",
+                  margin: "2px 10px",
+                  background: "#ffffff2d",
+                  borderBottom: "1px solid #46464650",
+                }} ><span onClick={() => navigate(`/profile/${item.id}`)} className="name">{item.name}</span> {item.description}</li>
+              
+            ))}
+          </ul>
+        )}
       </div>
       
     </>

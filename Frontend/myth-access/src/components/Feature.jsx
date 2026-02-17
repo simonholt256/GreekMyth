@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react"
-
-
-
-
+import { useNavigate } from "react-router-dom";
 
 function GodList() {
 
   const [entity, setEntity] = useState(null)
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
-  const baseURL = `http://127.0.0.1:8000/entities/id/`
 
-  const entity_number = 1
+   /* edit chosenFeature to select featured*/
+  const chosenFeature = 79
+  const baseURL = `http://127.0.0.1:8000/entities`
   
+  const navigate = useNavigate();
+
+  // Load featured entity
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(baseURL + entity_number);
+        
+
+        const response = await fetch(`${baseURL}/id/${chosenFeature}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
@@ -33,6 +37,34 @@ function GodList() {
     fetchData();
   }, []);
 
+  // find random entity
+
+  const handleRandom = async () => {
+    try {
+      
+
+      const res = await fetch(`${baseURL}/random`);
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+      const json = await res.json();
+      setEntity(json);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  // Navigate to profile page
+
+  const handleNameClick = () => {
+    if (entity?.id) {
+      navigate(`/profile/${entity.id}`);
+    }
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -40,12 +72,17 @@ function GodList() {
   return (
     <>
       <div className="feature-box">
-        <div className="feature-label">Featured entity</div>
-        <h1>{entity.name}</h1>
+        <div className="feature-label">{entity?.id === chosenFeature ? "Featured entity" : "Lucky dip"}</div>
+        <h1 onClick={handleNameClick} style={{cursor:'pointer'}}>{entity.name}</h1>
+        
+        <button className="random-button" onClick={handleRandom} style={{
+              cursor: "pointer",
+            }} >find random</button>
+      </div>
+      <div className="feature-info">
         <p>{entity.division}</p>
         <p>{entity.description}</p>
         <p>{entity.category}</p>
-        <button className="random-button" onClick={() => alert(`Clicked: random, how to get random number?`)}>find random</button>
       </div>
     </>
   )

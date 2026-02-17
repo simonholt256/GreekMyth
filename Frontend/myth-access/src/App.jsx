@@ -1,25 +1,32 @@
-import Navbar from './components/Navbar'
-import Feature from './components/Feature'
-import Showcase from './components/Showcase'
-import Search from './components/Search'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Context from "./pages/Context";
+import Method from "./pages/Method";
+import Sources from "./pages/Sources";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
 import './App.css'
-import grecianLady from './assets/grecian-lady.png'
+import InfoBox from './components/InfoBox'
 
 function App() {
 
   return (
     <div className='entire-frame'>
       <div className='image-column'>
-        {/* <img src={grecianLady}></img> */}
       </div>
       <div className='middle-box'>
-        <div className='title-block'>
-          <h1 className='title'>Greek Mythology Database </h1>
-          <Navbar/>
-        </div>
-        <Search/>
-        <Feature/>
-        <Showcase/>
+        <Router>
+        <Header/>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/context" element={<Context/>} />
+            <Route path="/method" element={<Method/>} />
+            <Route path="/sources" element={<Sources/>} />
+            <Route path="/contact" element={<Contact/>} />
+            <Route path="/profile/:id" element={<Profile/>} />
+          </Routes>
+        </Router>
       </div>
       <div className='image-column'></div>  
     </div>
