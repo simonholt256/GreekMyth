@@ -53,23 +53,11 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
-# get root
+#GET
 
 @app.get("/")
 def read_root():
   return {"message": "All is well, Captain!"}
-
-
-
-# @app.get("/entities/{id}")
-# def get_category(db: Session = Depends(get_db)):
-#   result = db.query(Entity).filter(
-#      Entity.id == id).first()
-#   if not result:
-#       raise HTTPException(status_code=404, detail="Entity not found")
-#   return result
-
-
 
 @app.get("/entities/")
 def get_entities(db: db_dependency):
@@ -103,13 +91,6 @@ def search_entities(q: str, db: Session = Depends(get_db)):
 
     return results
 
-# @app.get("/entities/olympians")
-# def get_olympians(db: Session = Depends(get_db)):
-#     results = db.query(Entity).filter(
-#        Entity.category == "Olympian"
-#        ).all()
-#     return results
-
 @app.get("/entities/by-category")
 def get_entities_by_category(category: str, db: db_dependency):
     results = db.query(Entity).filter(Entity.category == category).limit(12).all()
@@ -127,8 +108,21 @@ def get_entity_by_id(id: int, db: db_dependency):
         raise HTTPException(status_code=404, detail="Entity not found")
     return entity
 
+@app.get("/entities/random")
+def get_random_entity(db: Session = Depends(get_db)):
+    entity = db.query(Entity).order_by(func.random()).first()
+    if not entity:
+        raise HTTPException(status_code=404, detail="No entities found")
+    return {
+        "id": entity.id,
+        "name": entity.name,
+        "division": entity.division,
+        "description": entity.description,
+        "category": entity.category
+    }
 
-#post
+
+#POST
 
 @app.post("/entities/", response_model=MythResponse)
 async def create_entities(entity: MythBase, db: db_dependency):
@@ -148,18 +142,8 @@ async def create_entities(entity: MythBase, db: db_dependency):
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
     
-@app.get("/entities/random")
-def get_random_entity(db: Session = Depends(get_db)):
-    entity = db.query(Entity).order_by(func.random()).first()
-    if not entity:
-        raise HTTPException(status_code=404, detail="No entities found")
-    return {
-        "id": entity.id,
-        "name": entity.name,
-        "division": entity.division,
-        "description": entity.description,
-        "category": entity.category
-    }
+
+# DELETE
     
 @app.delete("/entities/{id}")
 def delete_entity(id: int, db: db_dependency):
