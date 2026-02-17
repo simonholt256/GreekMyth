@@ -55,8 +55,6 @@ function ProfileBox() {
           <button className="back-home-button" onClick={() => navigate(`/`)}>Back home</button>
         </div>
       </div>
-      
-      <button onClick={() => navigate(`/`)}>Back home</button>
     </>
     
   )
