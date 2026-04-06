@@ -20,6 +20,8 @@
 
 - make search bar font consistent
 
+- make colours used varriables on css sheets
+
 - write and edit pages. with images
 
 - make responsive design. for bigger screen - for reduced desktop - for mobile

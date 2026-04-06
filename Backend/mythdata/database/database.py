@@ -1,10 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from config import URL_DATABASE
 
-URL_DATABASE = 'postgresql://postgres:WalkWithMyth@localhost:5432/myth'
-
-engine = create_engine(URL_DATABASE, future=True)
+engine = create_engine(URL_DATABASE, future=True, echo=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
