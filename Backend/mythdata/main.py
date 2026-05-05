@@ -41,6 +41,13 @@ class MythResponse(BaseModel):
     description: str
     notes: str | None = None
 
+class MythUpdate(BaseModel):
+    name: str | None = None
+    division: str | None = None
+    category: str | None = None
+    description: str | None = None
+    notes: str | None = None
+
     class Config:
         orm_mode = True 
 
@@ -142,6 +149,28 @@ async def create_entities(entity: MythBase, db: db_dependency):
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
     
+# PUT
+
+@app.put("/entities/{id}", response_model=MythResponse)
+def update_entity(id: int, updated_data: MythUpdate, db: db_dependency):
+
+    entity = db.query(Entity).filter(Entity.id == id).first()
+
+    if not entity:
+        raise HTTPException(status_code=404, detail="Entity not found")
+
+    update_fields = updated_data.dict(exclude_unset=True)
+
+    for key, value in update_fields.items():
+        setattr(entity, key, value)
+
+    try:
+        db.commit()
+        db.refresh(entity)
+        return entity
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
 
 # DELETE
     
