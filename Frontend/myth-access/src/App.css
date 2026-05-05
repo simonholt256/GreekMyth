@@ -321,14 +321,14 @@ li {
     width: 88%;
   }
 
-  .input {
-    width: 50px;
-  }
-
   .search-whole-input {
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .search-button {
+    width: 100px;
   }
 
   .look-in {
@@ -340,6 +340,6 @@ li {
   }
 
   input {
-    width: 80px;
+    width: 280px;
   }
 }
