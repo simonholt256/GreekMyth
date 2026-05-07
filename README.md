@@ -58,7 +58,7 @@ Install dependencies:
 ```
 pip install -r requirements.txt
 ```
-Go into mydata folder
+Go into mythdata folder
 ```
 cd mythdata
 ```
