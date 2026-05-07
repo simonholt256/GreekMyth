@@ -99,6 +99,7 @@ A JSON array of Entity objects
 ] 
 ```
 Example response 
+```
 [
  {
    "id": 1,
@@ -109,6 +110,7 @@ Example response
    "notes": null
  }
 ]
+```
 
 ## Demo
 (Add screenshots and videos here)
