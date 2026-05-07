@@ -24,11 +24,11 @@ PostgreSQL
 REST API architecture
 
 ## How It Works
-User enters a search query in the React frontend
-The frontend sends a request to the FastAPI backend
-The backend queries the PostgreSQL database
-Results are returned as JSON
-The frontend displays the data to the user
+- User enters a search query in the React frontend
+- The frontend sends a request to the FastAPI backend
+- The backend queries the PostgreSQL database
+- Results are returned as JSON
+- The frontend displays the data to the user
 
 Also available is a feature box which showcases a selected entity. Users can click “lucky Dip” to be shown a random entity.
 
