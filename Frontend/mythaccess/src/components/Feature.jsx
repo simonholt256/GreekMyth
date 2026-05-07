@@ -58,6 +58,8 @@ function GodList() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  console.log(entity)
+
   // Navigate to profile page
 
   const handleNameClick = () => {

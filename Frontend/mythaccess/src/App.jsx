@@ -6,7 +6,7 @@ import Method from "./pages/Method";
 import Sources from "./pages/Sources";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
-import './App.css'
+import './css/App.css'
 import InfoBox from './components/InfoBox'
 
 function App() {
