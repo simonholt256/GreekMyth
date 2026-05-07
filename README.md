@@ -42,8 +42,10 @@ Navigate to the backend folder:
 cd backend
 ```
 Create a virtual environment:
+```
 python -m venv venv
-Activate it:
+```
+Activate it:__
 Mac/Linux:
 ```
 source venv/bin/activate
