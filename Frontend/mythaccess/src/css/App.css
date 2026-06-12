@@ -256,6 +256,8 @@ li {
   position: absolute;
   border-radius: 20px;
   top: 0;
+  
+  min-width: 91%;
 }
 
 .back-home-button {

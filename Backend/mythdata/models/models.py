@@ -1,8 +1,6 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from database.database import Base
 
-
-
 print("models.Base exists:", Base)
 
 class Entity(Base):

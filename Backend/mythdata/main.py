@@ -32,7 +32,6 @@ class MythBase(BaseModel):
   description: str
   notes: str | None = None
   
-
 class MythResponse(BaseModel):
     id: int
     name: str
