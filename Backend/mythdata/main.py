@@ -3,9 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import or_, case, func
 from pydantic import BaseModel
 from typing import List, Annotated
-from models.models import Base, Entity
+from mythdata.models.models import Base, Entity
 import models
-from database.database import engine, SessionLocal
+from mythdata.database.database import engine, SessionLocal
 from sqlalchemy.orm import Session
 
 app = FastAPI()
