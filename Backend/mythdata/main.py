@@ -147,6 +147,26 @@ async def create_entities(entity: MythBase, db: db_dependency):
         db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
     
+@app.post("/entities/bulk")
+def create_entities_bulk(entities: List[MythBase], db: db_dependency):
+
+    db_entities = []
+
+    for entity in entities:
+        db_entity = Entity(
+            name=entity.name,
+            division=entity.division,
+            category=entity.category,
+            description=entity.description,
+            notes=entity.notes
+        )
+        db.add(db_entity)
+        db_entities.append(db_entity)
+
+    db.commit()
+
+    return {"inserted": len(db_entities)}
+    
 # PUT
 
 @app.put("/entities/{id}", response_model=MythResponse)
