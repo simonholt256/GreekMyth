@@ -58,13 +58,9 @@ Install dependencies:
 ```
 pip install -r requirements.txt
 ```
-Go into mythdata folder
-```
-cd mythdata
-```
 Run the server:
 ```
-python -m uvicorn main:app
+python -m uvicorn mythdata.main:app
 
 ```
 ### Frontend Setup (React)
