@@ -4,7 +4,6 @@ from sqlalchemy import or_, case, func
 from pydantic import BaseModel
 from typing import List, Annotated
 from mythdata.models.models import Base, Entity
-import models
 from mythdata.database.database import engine, SessionLocal
 from sqlalchemy.orm import Session
 
