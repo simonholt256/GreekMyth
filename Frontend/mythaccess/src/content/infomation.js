@@ -3,47 +3,87 @@
 export const text = [
   { label: "context",
     title: "Mythological context",
-    write_up: `the orgin of the myths of ancient greece stretch far back
-    in time, beyound when it is possible for us to see. Deffiently the stories
-    told by Homer are likely to date back to the bronze age. The people of that
-    time may have had their own destinct culture but it seems likely that
-    in it were the roots of what we see starting to be written down in greece
-    around 800 - 700 B.C.E. Before then these stories were passed down through
-    oral tradition. There is president of cultures maintaining similar culture
-    over thousands of years (examples). mention art here too. How did they relate to it?
-    Where do we see gods etc mentioned?`,
+    write_up: `It is best to see Greek mythology as a long-developing
+    tradition rather than a fixed body of stories with specific
+    meanings existing at a single point in time. Its origins likely
+    extend back into the Bronze Age (Mycenaean Greece, c. 1600–1100 BCE).
+    Evidence from Linear B administrative tablets shows that several major
+    deities—such as Zeus, Hera, and Poseidon were already being worshipped
+    in some recognisable form during this period. This suggests there was
+    already many features of the religious world we would later see in the
+    Archaic and the Classical period, even if the myths themselves were not yet fixed narratives. Certainly
+    there was some level of continuity of religious figures existing during this
+    period of time in which old civilisations would fall and new would arise. 
+
+    Following the collapse of the Mycenaean palace system, Greek culture continued
+    without large-scale writing for several centuries. During this so-called “Dark Age”
+    mythological material was transmitted orally. Oral tradition does not necessarily preserve
+    stories verbatim. Instead it maintains stable narrative frameworks and key figures,
+    but allows significant variation in detail and emphasis. Within this context, the
+    epic traditions associated with Homer were formed. The Iliad and Odyssey, likely
+    composed in the 8th century BCE, reflect a synthesis of inherited Bronze Age material,
+    later Iron Age social conditions, and the creative work of a long oral poetic tradition.
+
+    The introduction of alphabetic writing in the 8th century BCE marks a significant shift,
+    as oral traditions began to be recorded and stabilised in written form. At roughly the
+    same time, visual culture provides an additional source of evidence for the development
+    of myth. Geometric pottery begins to depict recognisable mythological scenes, while from
+    the Archaic period onward, vase painting and monumental sculpture increasingly standardise
+    and disseminate specific mythic narratives across the Greek world.
+
+    Greek religious practices were closely integrated with these mythological figures and ideas.
+    The gods were not understood primarily as symbolic figures within literature, but as active
+    divine agents embedded in the structure of the natural and social world. Each deity was
+    associated with particular domains of influence. Zeus with kingship and the sky. Poseidon with
+    the sea. Athena with warfare and civic life. All were given worship through ritual practice.
+    This relationship was practical. Individuals and communities engaged with the gods through
+    sacrifice, prayer, dedications, and festivals in order to secure favour, protection, and
+    success in everyday affairs. Myth, in this context, functioned not only as narrative explanation
+    but also as a cultural framework that dictated everyday life.
+    
+    Taken together, the evidence suggests that Greek mythology should be approached as a dynamic
+    system of religious and cultural memory, shaped over centuries through oral transmission,
+    evolving ritual practice, and later literary and artistic codification.`,
   },
   { label: "method",
     title: "Categorising Methodology",
-    write_up: `An attempt has been made to organise the players in ancient
-    greek mythology into categories that are significate to the parts they
-    play in myth, while also using a style of categorising that is sympathic
-    to our modern sensibilities, which tend to prefer type with type, with a
-    leaning towards linking genology.
-    
-    Geneology will always be difficult in a culture that spans a long time and has different
-    retellings, and different modern analysis. 
-    There will always be places within the information were the ancestory of a figure,
-    or their origin is disputed. Controdictory information is enevertible and so as not to destroy
-    its usefulness as a database the decision was made to follow and log one version (explain reasons
-    for choice) and simply to make a note of the alternative understanding in their relevant profile
-    There are a few things to keep in mind, we are working with an incomplete data set, we only have
-    scraps of the stories that were not only expansive but were the very fabric of peoples lives.
-    We have a fraction of what was written down, and even then, what was put on a page is only overspill
-    from the true relationship the people of the time had with these stories. There is no way to know in
-    what way they related to them or know what they truley meant. Which leads onto the second point, this
-    is an attempt to categorise in a certain "fact driven" way. It is not the fault of the data that it
-    does not fit neatly, the blame lies with the very desire to categorise in this way something which is
-    not scientific and does not claim to be. It is certainly possible that what seems controdictory to us
-    is because of our idea of truth. That multiple things can be true at once, an entity being a human form
-    and an animal form simaltaniously, being alive and dead, being real and not real are all viable in the
-    world of the divine and supernatural. This may unsettle us in our desire to box and pack away the past,
-    but for all we know these paradoxes may have be where the metaphysicalvalue of these tales really lies`,
+    write_up: `An attempt has been made to organise figures in Greek mythology into categories that
+    reflect the roles they play within mythic narratives, while also drawing on modern preferences
+    for systematic classification, particularly those based on genealogical relationships.
+
+    However, genealogy in Greek myth is inherently unstable. The tradition spans many centuries,
+    is transmitted through multiple regional versions, and survives in fragmented literary and artistic
+    sources. As a result, the lineage or origin of certain figures is often disputed, with competing
+    traditions preserved in different texts or later scholarly accounts. In this context, contradictory
+    accounts should not be treated as errors, but as evidence of variation within the tradition itself.
+    For practical purposes, a single version is followed in each case, while significant alternative
+    traditions are noted where relevant.
+
+    It is also important to acknowledge the limitations of the surviving evidence. What remains represents
+    only a fraction of a once extensive body of oral and written material, much of which was embedded in
+    performance, ritual, and everyday cultural practice. The surviving texts are therefore partial reflections
+    of a much broader and more fluid mythological system.
+
+    This approach necessarily imposes a degree of structure on material that was not originally systematised
+    in a modern sense. Greek myth does not conform neatly to fixed categories, and variation, contradiction,
+    and multiplicity are characteristic features of the tradition rather than anomalies. In some cases, what
+    appears contradictory from a modern analytical perspective may reflect a different conception of coherence,
+    in which multiple versions of a figure or event could coexist without requiring resolution.`,
   },
   { label: "sources",
     title: "Sources",
-    write_up: `AI was used to create the general dataset, but each items was manually viewed and checked
-    against (sources). Note, AI was not used for the creation of any images or copy`,
+    write_up: `AI was used throughout the development of this dataset as a core tool in the initial generation
+    and structuring of entries related to figures in Greek mythology. It assisted in compiling background
+    information, organising genealogies, and producing draft descriptions based on known mythological material.
+
+    These AI-generated drafts were not treated as final content. Each entry was then manually reviewed, edited,
+    and verified against external sources, including established reference works (such as Greek mythology dictionaries)
+    and reputable online resources. Where sources differed, variant traditions were noted rather than removed,
+    reflecting the inconsistency present in mythological records.
+
+    In this project, AI functioned as a primary support tool for data generation and organisation, while human
+    review and external references were used to validate and refine the final dataset. AI was not used for
+    image generation.`,
   },
   { label: "contact",
     title: "Who made this?",

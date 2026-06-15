@@ -1,8 +1,10 @@
-import InfoBox from "../components/InfoBox"
+import { NavLink } from "react-router-dom"
+
+import acrop from "../assets/acrop.jpg"
 
 function Contact() {
   return (
-    <InfoBox content="contact"/>
+    <></>
   )
 }
 

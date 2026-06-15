@@ -6,7 +6,7 @@ function Navbar() {
       <NavLink to="/" className="nav-link">
         Home
       </NavLink>
-      <NavLink to="/context" className="nav-link">
+      {/* <NavLink to="/context" className="nav-link">
         Context
       </NavLink>
       <NavLink to="/method" className="nav-link">
@@ -17,6 +17,9 @@ function Navbar() {
       </NavLink>
       <NavLink to="/contact" className="nav-link">
         Contact
+      </NavLink> */}
+      <NavLink to="/moreinfo" className="nav-link">
+        More Info
       </NavLink>
     </nav>
   )

@@ -43,17 +43,19 @@ function ProfileBox() {
   return (
     <>
       <div className="info-box-container">
-        <img className="acrop-image" src={acrop} alt="acrop"></img>
-        <div className="info-box">
-          <div className="profile-box">
-            <h1 style={{paddingBottom: "6px",}} >{entity.name}</h1>
-            <p style={{paddingBottom: "6px",}} >Division: <b>{entity.division}</b></p>
-            <p style={{paddingBottom: "6px",}} >Category: <b>{entity.category}</b></p>
-            <p style={{paddingBottom: "6px",}} >{entity.description}</p>
-            <p style={{paddingBottom: "6px",}} >{entity.notes}</p>
+        <div className="acrop-image" alt="acrop">
+          <div className="info-box">
+            <div className="profile-box">
+              <h1 style={{paddingBottom: "6px",}} >{entity.name}</h1>
+              <p style={{paddingBottom: "6px",}} >Division: <b>{entity.division}</b></p>
+              <p style={{paddingBottom: "6px",}} >Category: <b>{entity.category}</b></p>
+              <p style={{paddingBottom: "6px",}} >{entity.description}</p>
+              <p style={{paddingBottom: "6px",}} >{entity.notes}</p>
+            </div>
+            <button className="back-home-button" onClick={() => navigate(`/`)}>Back home</button>
           </div>
-          <button className="back-home-button" onClick={() => navigate(`/`)}>Back home</button>
         </div>
+        
       </div>
     </>
     

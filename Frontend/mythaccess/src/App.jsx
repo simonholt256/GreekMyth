@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import MoreInfo from "./components/MoreInfo";
 import Context from "./pages/Context";
 import Method from "./pages/Method";
 import Sources from "./pages/Sources";
@@ -20,6 +21,7 @@ function App() {
         <Header/>
           <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/moreinfo" element={<MoreInfo/>} />
             <Route path="/context" element={<Context/>} />
             <Route path="/method" element={<Method/>} />
             <Route path="/sources" element={<Sources/>} />

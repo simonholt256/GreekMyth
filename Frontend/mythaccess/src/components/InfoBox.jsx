@@ -9,7 +9,8 @@ function InfoBox({content}) {
   
   return (
     <div className="info-box-container">
-      <img className="acrop-image" src={acrop} alt="acrop"></img>
+      <div className="acrop-image">
+      </div>
       <div className="info-box">
         <h2>{matched.title}</h2>
         <div>{matched.write_up}</div>
