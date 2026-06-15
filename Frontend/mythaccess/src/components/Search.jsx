@@ -15,7 +15,7 @@ function Search() {
     setSearched(true);
 
     try {
-        const res = await fetch(`http://localhost:8000/entities/search?q=${query}`);
+        const res = await fetch(`https://greekmyth-production.up.railway.app/entities/search?q=${query}`);
         const data = await res.json();
         setResults(data);
       } catch (err) {

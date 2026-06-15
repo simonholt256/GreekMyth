@@ -7,7 +7,7 @@ function ShowcaseList({type}) {
   const [entities, setEntities] = useState(null)
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
-  const baseURL = `http://127.0.0.1:8000/entities/`
+  const baseURL = `https://greekmyth-production.up.railway.app/entities/`
 
   const navigate = useNavigate()
 
