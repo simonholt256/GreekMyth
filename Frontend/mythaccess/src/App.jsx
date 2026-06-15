@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import MoreInfo from "./pages/MoreInfo";
 import Profile from "./pages/Profile";
 import './css/App.css'
-import InfoBox from './components/InfoBox'
+
 
 function App() {
 

@@ -62,7 +62,7 @@ body {
   width: 100%;
   background-color: rgb(136, 68, 68);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .nav-link {
@@ -244,15 +244,21 @@ li {
 
 .acrop-image {
   width: 100%;
-  background-image: url("../assets/acrop.jpg");
-  background-repeat: no-repeat;
+  /* background-image: linear-gradient(url("../assets/acrop.jpg"), black);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat; */
+   background-image:
+    linear-gradient(rgba(241, 241, 241, 0.5), rgba(255, 255, 255, 0.5)),
+    url("../assets/acrop.jpg");
   background-size: cover;
-  opacity: 0.6;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  /* opacity: 0.6; */
   
 }
 
 .info-box {
-  margin: 20px;
+  margin: 0px 20px;
   padding: 20px;
   min-height: 400px;
   background-color: #e2e2e2bb;
