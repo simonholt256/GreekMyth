@@ -1,11 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import MoreInfo from "./components/MoreInfo";
-import Context from "./pages/Context";
-import Method from "./pages/Method";
-import Sources from "./pages/Sources";
-import Contact from "./pages/Contact";
+import MoreInfo from "./pages/MoreInfo";
 import Profile from "./pages/Profile";
 import './css/App.css'
 import InfoBox from './components/InfoBox'
@@ -22,10 +18,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/moreinfo" element={<MoreInfo/>} />
-            <Route path="/context" element={<Context/>} />
-            <Route path="/method" element={<Method/>} />
-            <Route path="/sources" element={<Sources/>} />
-            <Route path="/contact" element={<Contact/>} />
             <Route path="/profile/:id" element={<Profile/>} />
           </Routes>
         </Router>

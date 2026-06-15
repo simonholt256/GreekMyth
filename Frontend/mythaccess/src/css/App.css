@@ -330,6 +330,7 @@ li {
   .showcase-box {
     
     flex-direction: column;
+    align-items: center;
   }
 
   .showcase {
